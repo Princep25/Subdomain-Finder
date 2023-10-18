@@ -1,4 +1,4 @@
-#! /bin/bash
+! /bin/bash
 echo ''
 echo "Welcome `tput setaf 1`@$USER`tput sgr0`"
 echo "`tput setaf 5``tput bold`
@@ -21,24 +21,42 @@ if ! command -v assetfinder >/dev/null || ! command -v httprobe > /dev/null; the
  if ! command -v httprobe >/dev/null ; then
   echo "`tput setaf 1``tput bold``tput blink`Installing httprobe...`tput sgr0`"
    sudo apt install httprobe
- fi
+ fi 
  read -p"`tput setaf 6``tput bold` Enter your Target Domain: `tput sgr0`" target
+ echo ""
  echo "`tput setaf 3`Please wait it may take some time depending on the number of Subdomains`tput blink`......`tput sgr0`"
  assetfinder $target > sub.txt
  cat sub.txt |httprobe > live.txt
  sort -u live.txt > subs.txt
+ echo ""
+ echo "`tput setaf 5`**`tput smul`Live subdomains of $target are listed below`tput rmul`**`tput sgr0`"
+ echo ""     
  cat subs.txt
- rm sub.txt
+ echo "`tput bold``tput setaf 2`:::::::::::::::::::::::::`tput sgr0`" 
+ echo ""
+ echo "`tput setaf 6` Results saved in subs.txt"
+ rm sub.txt 
  rm live.txt
+ echo ""
  echo "`tput sitm``tput setaf 4` Thank you for using Subdomain Finder `tput sgr0` "
-else 
+else    
  read -p"`tput setaf 6``tput bold` Enter your Target Domain: `tput sgr0`" target
+ echo ""
  echo "`tput setaf 3`Please wait it may take some time depending on the number of  Subdomains`tput blink`......`tput sgr0`"
- assetfinder $target > sub.txt
+ assetfinder $target > sub.txt   
  cat sub.txt |httprobe > live.txt
  sort -u live.txt > subs.txt
+ echo ""
+ echo "`tput setaf 6`**`tput smul`Live subdomains of $target are listed below`tput rmul`**`tput sgr0`"
+ echo ""
  cat subs.txt
- rm sub.txt
+ echo "`tput bold``tput setaf 2`:::::::::::::::::::::::::`tput sgr0`"
+ echo ""
+ echo "`tput setaf 6`Results saved in `tput bold`subs.txt"
+ rm sub.txt 
  rm live.txt
- echo "`tput sitm``tput setaf 4` Thank you for using Subdomain Finder `tput sgr0` "
+ echo ""
+ echo "`tput sitm``tput setaf 4`Thank you for using Subdomain Finder `tput sgr0` "
 fi
+
+
