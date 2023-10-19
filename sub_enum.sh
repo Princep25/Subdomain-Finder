@@ -14,6 +14,7 @@ echo "`tput setaf 5``tput sitm`This tool will help you to find subdomains of a T
 echo ""
 if ! command -v assetfinder >/dev/null || ! command -v httprobe > /dev/null; then
  echo "`tput setaf 4``tput bold`Required tool doesn't exist`tput sgr0`" 
+ sudo apt update
  if  ! command -v assetfinder >/dev/null ; then
   echo "`tput setaf 1``tput bold``tput blink`Installing assetfinder...`tput sgr0`"
    sudo apt install assetfinder
