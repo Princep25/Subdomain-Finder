@@ -1,6 +1,6 @@
 #! /bin/bash
 echo ''
-echo "Welcome `tput setaf 1`@$USER`tput sgr0`"
+echo "Welcome `tput setaf 1`$USER`tput sgr0`"
 echo "`tput setaf 5``tput bold`
 
     _          _         _                   _          _______ _           _
